@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<p>
+  Respond every section with full honesty and objectiveness./ Responde todas las secciones con completa honestidad y objetividad.</p>
+<%= link_to "Iniciar", quiz_preg1_path %>
+<% else %>
+<p>
+  Bienvenido, antes de comenzar debes registrarte.
+</p>
+
+<% end %>

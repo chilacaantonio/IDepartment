@@ -1,0 +1,12 @@
+<p>Elige únicamente un concepto con el que estés más familiarizado.</p>
+<%= form_tag({controller: "quiz", action: "evalua1"}) do |f| %>
+<p>
+    <p>
+  	<%= radio_button_tag(:choice, 1) %> Seguridad Internacional <br>
+    <%= radio_button_tag(:choice, 2) %> Justicia Internacional <br>
+    <%= radio_button_tag(:choice, 3) %> Economia Internacional <br>
+  </p>
+<%= submit_tag("Siguiente", :class => "btn btn-default") %>
+</p>
+
+<% end %>

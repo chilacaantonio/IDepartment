@@ -1,0 +1,17 @@
+<p>
+  Los comites en los cuales destacaras mas como delegado seran:
+</p><br>
+<% @imagen.each do |a| %>
+  <% @valores.each do |dat| %>
+    <% if @imagen.index(a) == @valores.index(dat) %>
+      <p>
+        <%=image_tag(@imagen[dat.to_i]+".png", alt: "Example Image")%><br>
+        <h2><%= link_to @titulo[dat.to_i], @url[dat.to_i] %></h2><br>
+        <h1><%= @sub[dat.to_i] %></h1><br>
+        <%= @quien[dat.to_i] %><br>
+        Level: <%= @level[dat.to_i] %><br>
+        Grade: <%= @grade[dat.to_i] %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>

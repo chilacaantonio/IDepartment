@@ -1,0 +1,24 @@
+c
+<p>
+  Choose the three most familiar concepts to you.
+</p>
+<%= form_tag({controller: "quiz", action: "rc3"}) do |f| %>
+<p>
+  <% @respuestas.each do |respuesta| %>
+  <%= check_box_tag  "product[id][]",@respuestas.index(respuesta) %>
+  <%= respuesta %>
+  <br>
+  <% end %>
+
+<%= submit_tag("Siguiente", :class => "btn btn-default") %>
+</p>
+
+<% end %>
+
+<script>
+$('input[type=checkbox]').change(function(e){
+   if ($('input[type=checkbox]:checked').length > 3) {
+        $(this).prop('checked', false)
+   }
+})
+</script>

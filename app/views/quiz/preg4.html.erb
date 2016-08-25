@@ -1,0 +1,18 @@
+<p>
+  How good do you master your debating, argumenting and public speaking skills?
+</p>
+<%= form_tag({controller: "quiz", action: "resp4"}) do |f| %>
+<p>
+    <p>
+      Im working on it
+  	1 <%= radio_button_tag(:choice, 1) %>
+    2 <%= radio_button_tag(:choice, 2) %>
+    3 <%= radio_button_tag(:choice, 3) %>
+    4 <%= radio_button_tag(:choice, 4) %>
+    5 <%= radio_button_tag(:choice, 5) %>
+    6 <%= radio_button_tag(:choice, 6) %>
+    I totally nail them
+  </p>
+<%= submit_tag("Siguiente", :class => "btn btn-default") %>
+</p>
+<% end %>

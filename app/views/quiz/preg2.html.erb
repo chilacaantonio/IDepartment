@@ -1,0 +1,15 @@
+<p>¿Qué tanto dominas tus habilidades de debate, argumentación y el habla pública</p>
+<%= form_tag({controller: "quiz", action: "resp2"}) do |f| %>
+<p>
+    <p>
+  	1 <%= radio_button_tag(:choice, 1) %>
+    2 <%= radio_button_tag(:choice, 2) %>
+    3 <%= radio_button_tag(:choice, 3) %>
+    4 <%= radio_button_tag(:choice, 4) %>
+    5 <%= radio_button_tag(:choice, 5) %>
+    6 <%= radio_button_tag(:choice, 6) %>
+    Domino excelentemente esas habilidades
+  </p>
+<%= submit_tag("Siguiente", :class => "btn btn-default") %>
+</p>
+<% end %>
