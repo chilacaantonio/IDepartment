@@ -16,10 +16,10 @@
         <% if user_signed_in? %>
         <% if @opc %>
         <li><%= link_to "Mis resultados", quiz_resultados_path%></li>
-                <% else %>
+        <% else %>
         <li><%= link_to "Cuestionario", quiz_inicio_path%></li>
         <% end %>
-          <li><%= link_to "Mi cuenta", edit_user_registration_path %></li>
+        <!--  <li><%= link_to "Mi cuenta", edit_user_registration_path %></li>-->
           <li><%= link_to "Salir", destroy_user_session_path , method: :delete%></li>
         <% else %>
           <li><%= link_to "Registrarse", new_user_registration_path, class: "active" %></li>
