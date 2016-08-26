@@ -28,3 +28,32 @@
    width: 65% !important;
    float: left;
   }
+
+  strong {
+   font-weight: bold;
+   font-style: normal;
+   padding: 2px;
+ }
+
+ h2 {
+  text-decoration: underline;
+ font-weight: bold;
+ font-style: normal;
+ padding: 2px;
+  }
+
+  h3 {
+  font-weight: bold;
+  font-style: normal;
+  padding: 2px;
+   }
+
+   p {
+   font-style: normal;
+   padding: 2px;
+    }
+
+h1 {
+ font-style: italic;;
+ padding: 2px;
+}

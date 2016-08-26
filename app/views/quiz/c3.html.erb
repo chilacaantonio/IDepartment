@@ -2,9 +2,9 @@
 <% controller.redirect_to root_path %>
 <% else %>
 <div class="panel panel-default">
-<h2>
+<h3>
   Choose the three most familiar concepts to you.
-</h2>
+</h3>
 <%= form_tag({controller: "quiz", action: "rc3"}) do |f| %>
 <p>
   <% @respuestas.each do |respuesta| %>
