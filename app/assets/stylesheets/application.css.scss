@@ -15,3 +15,16 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+  body {
+  	background: rgb(235, 238, 243);
+  }
+
+  .result_title {
+   margin: 0 0 20px 0;
+  }
+  .form-input {
+   width: 65% !important;
+   float: left;
+  }

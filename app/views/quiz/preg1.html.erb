@@ -1,6 +1,7 @@
 <% if @opc %>
 <% controller.redirect_to root_path %>
 <% else %>
+<div class="panel panel-default">
 <p>
   How confident do you feel about your English skills?/¿Cómo calificarías tu nivel de inglés?
 </p>
@@ -17,7 +18,7 @@
   </p>
 <%= submit_tag("Next/Siguiente", :class => "btn btn-default") %>
 </p>
-
+</div>
 <% end %>
 
 <% end %>

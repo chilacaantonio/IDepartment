@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "quiz/rc3"
   post "quiz/evalua1"
   get "quiz/evalua1"
+  get "quiz/resultados"
 
 
   root "quiz#index"

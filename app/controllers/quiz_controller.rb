@@ -1,10 +1,13 @@
 class QuizController < ApplicationController
-  before_action :varios, only: [:c1,:c2,:c3,:rc1,:index]
-  before_action :q2, only: [:rc2,:rc3,:index,:evalua1]
+  before_action :varios, only: [:c1,:c2,:c3,:rc1,:index,:resultados]
+  before_action :q2, only: [:rc2,:rc3,:index,:evalua1,:resultados]
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3]
+  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados]
 
   def index
+  end
+
+  def resultados
   end
 
   def preg1
@@ -58,7 +61,7 @@ class QuizController < ApplicationController
       else
         Resp.create(cual: @imagen[14],user_id: current_user.id,res: "2")
       end
-      redirect_to root_path
+      redirect_to quiz_resultados_path
     else
       #redirect_to :back,  notice: 'Selecciona una opcion'
       if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
@@ -104,7 +107,7 @@ class QuizController < ApplicationController
       @varios.each do |var|
         Resp.create(cual: @idr[var.to_i],user_id: current_user.id,res: "1")
       end
-      redirect_to root_path
+      redirect_to quiz_resultados_path
       else
         redirect_to :back
       end
@@ -456,7 +459,7 @@ class QuizController < ApplicationController
         @valores.each do |var|
           Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
         end
-        redirect_to root_path
+        redirect_to quiz_resultados_path
         #
       else
         redirect_to :back
@@ -819,7 +822,7 @@ class QuizController < ApplicationController
       @valores.each do |var|
         Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
       end
-      redirect_to root_path
+      redirect_to quiz_resultados_path
     else
       if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
             redirect_to :back, notice: 'Selecciona 3 categorias'

@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+<div class="panel-body">
+  <% @idr.each do |a| %>
+
+        <% @datos.each do |dat| %>
+          <% if @idr[@idr.index(a)] == dat.cual %>
+            <div class="row">
+        <center><%=image_tag(@idr[@idr.index(a).to_i]+".png", alt: "Example Image")%><br>
+          <h2><u><%= link_to @titulo1[@idr.index(a).to_i], @url1[@idr.index(a).to_i] %></u></h2><br>
+          <h1><em><%= @sub1[@idr.index(a).to_i] %></em></h1><br>
+          <strong>Chair members: </strong><%= @quien1[@idr.index(a).to_i] %><br>
+          <strong>Level:</strong><%= @level1[@idr.index(a).to_i] %><br>
+          <strong>Grade:</strong><%= @grade1[@idr.index(a).to_i] %><br><br><br><br></center>
+              </div>
+          <% end %>
+      <% end %>
+
+   <% end %>
+  </div>
+</div>

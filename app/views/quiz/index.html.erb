@@ -1,48 +1,22 @@
 <% if user_signed_in? %>
-  <% if @opc && @ss=="2"%>
-  <p>
-    <% @imagen.each do |a| %>
-      <% @datos.each do |dat| %>
-        <% if @imagen[@imagen.index(a)] == dat.cual %>
-          <p>
-            <%=image_tag(@imagen[@imagen.index(a).to_i]+".png", alt: "Example Image")%><br>
-            <h2><%= link_to @titulo[@imagen.index(a).to_i], @url[@imagen.index(a).to_i] %></h2><br>
-            <h1><%= @sub[@imagen.index(a).to_i] %></h1><br>
-            <%= @quien[@imagen.index(a).to_i] %><br>
-            Level: <%= @level[@imagen.index(a).to_i] %><br>
-            Grade: <%= @grade[@imagen.index(a).to_i] %>
-          </p>
-        <% end %>
-      <% end %>
-    <% end %>
-  </p>
-  <% elsif @opc && @ss=="1"%>
-  <p>
-    <% @idr.each do |a| %>
-      <% @datos.each do |dat| %>
-        <% if @idr[@idr.index(a)] == dat.cual %>
-          <p>
-            <%=image_tag(@idr[@idr.index(a).to_i]+".png", alt: "Example Image")%><br>
-            <h2><%= link_to @titulo1[@idr.index(a).to_i], @url1[@idr.index(a).to_i] %></h2><br>
-            <h1><%= @sub1[@idr.index(a).to_i] %></h1><br>
-            <%= @quien1[@idr.index(a).to_i] %><br>
-            Level: <%= @level1[@idr.index(a).to_i] %><br>
-            Grade: <%= @grade1[@idr.index(a).to_i] %>
-          </p>
-        <% end %>
-      <% end %>
-    <% end %>
-  </p>
-
-  <% else %>
-  <p>
-    Respond every section with full honesty and objectiveness./ Responde todas las secciones con completa honestidad y objetividad.</p>
-    <%= link_to "Iniciar", quiz_preg1_path %>
-    <% end %>
-
+<div class="panel panel-default">
+<center><h1>Bienvenido</h1></center>
+  <center><%=image_tag("ind.jpeg", alt: "Bienvenido")%></center><br>
+<p>A una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
+Este proyecto le animará a la investigación, ser curioso y ser consciente de lo que está sucediendo en todo el mundo, pero especialmente para innovar nuevas formas de cambiar , haciendo un mejor ciudadano del mundo .
+Les damos oficialmente la bienvenida a la decimonovena edición de los Amicis Modelo de las Naciones Unidas les invitamos a dejar su impresión con nosotros .</p><br>
+<center><strong>Si no has realizado el cuestionario dirigete a la parte superior derecha y da click en el enlace Iniciar Cuestionario</strong><br>
+<strong>Si ya lo has realizado con anterioridad el boton deberia decir Mis resultados</strong><br></center>
+</div>
 <% else %>
-<p>
-  Bienvenido, antes de comenzar debes registrarte.
-</p>
+<div class="panel panel-default">
+<center><h1>Bienvenido</h1></center>
+  <center><%=image_tag("ind.jpeg", alt: "Bienvenido")%></center><br>
+<p>A una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
+Este proyecto le animará a la investigación, ser curioso y ser consciente de lo que está sucediendo en todo el mundo, pero especialmente para innovar nuevas formas de cambiar , haciendo un mejor ciudadano del mundo .
+Les damos oficialmente la bienvenida a la decimonovena edición de los Amicis Modelo de las Naciones Unidas les invitamos a dejar su impresión con nosotros .</p><br>
+<center><p><strong>Esta pagina tiene como motivo medir tus aptitudes con una serie de preguntas que ayudaran a colocarte en algun comite.</strong><br>
+<strong>Si ya tienes una cuenta por favor da click en Iniciar Sesion, si por el contrario es tu primera vez aqui, por favor da click en Registrarse en la parte superior derecha.<strong></p></center>
+</div>
 
 <% end %>

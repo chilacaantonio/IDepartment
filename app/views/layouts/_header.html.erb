@@ -12,7 +12,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+
         <% if user_signed_in? %>
+        <% if @opc %>
+        <li><%= link_to "Mis resultados", quiz_resultados_path%></li>
+                <% else %>
+        <li><%= link_to "Iniciar Cuestionario", quiz_preg1_path%></li>
+        <% end %>
           <li><%= link_to "Mi cuenta", edit_user_registration_path %></li>
           <li><%= link_to "Salir", destroy_user_session_path , method: :delete%></li>
         <% else %>

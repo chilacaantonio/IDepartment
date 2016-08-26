@@ -1,19 +1,24 @@
-<h2>Registrate</h2>
+<div class="col-md-6 col-md-offset-3">
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Registrate</h2>
+    </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label "Nombre" %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, autofocus: true , required: true%>
   </div>
   <div class="field">
     <%= f.label "Apellido paterno" %><br />
-    <%= f.text_field :paterno, autofocus: true %>
+    <%= f.text_field :paterno, autofocus: true , required: true%>
   </div>
   <div class="field">
     <%= f.label "Apellido materno" %><br />
-    <%= f.text_field :materno, autofocus: true %>
+    <%= f.text_field :materno, autofocus: true , required: true%>
   </div>
 
   <div class="field">
@@ -23,7 +28,7 @@
 
   <div class="field">
     <%= f.label "Escuela" %><br />
-    <%= f.text_field :escuela, autofocus: true %>
+    <%= f.text_field :escuela, autofocus: true , required: true%>
   </div>
 
 
@@ -46,8 +51,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Registrar" %>
+    <%= f.submit "Registrar", class: "btn btn-default" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
+</div>
+</div>
+</div>
