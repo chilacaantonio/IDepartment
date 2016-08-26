@@ -1,65 +1,67 @@
-<div class="col-md-6 col-md-offset-3">
-<div class="row">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2>Mi cuenta</h2>
-    </div>
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+				<h2>Mi cuenta</h2>
+			</div>
+
+			<div class="panel-body">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Nombre" %><br />
-    <%= f.text_field :name, autofocus: true, required: true %>
+    <%= f.text_field :name, autofocus: true, required: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Apellido paterno" %><br />
-    <%= f.text_field :paterno, autofocus: true, required: true %>
+    <%= f.text_field :paterno, autofocus: true, required: true, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Apellido materno" %><br />
-    <%= f.text_field :materno, autofocus: true, required: true %>
+    <%= f.text_field :materno, autofocus: true, required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Fecha de nacimiento" %><br />
     <%= f.date_select :edad %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Escuela" %><br />
-    <%= f.text_field :escuela, autofocus: true ,required: true%>
+    <%= f.text_field :escuela, autofocus: true ,required: true, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Correo Electronico" %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true , class: "form-control"%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Contraseña" %> <i>(Dejala en blanco si no quieres cambiarla)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Confirmar Contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Contraseña actual" %> <i>(Necesitamos tu contraseña actual para realizar los cambios)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off" , class: "form-control"%>
   </div>
 <br>
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit "Aceptar" ,class: "btn btn-default" %>
   </div>
 <% end %>
@@ -67,6 +69,7 @@
 <h3>Cancelar mi cuenta</h3>
 
 <p>¿No estas feliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
 </div>
 </div>
 </div>

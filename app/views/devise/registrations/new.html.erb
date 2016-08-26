@@ -4,57 +4,61 @@
     <div class="panel-heading">
       <h2>Registrate</h2>
     </div>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="panel-body">
+
+
+
+  <div class="form-group">
     <%= f.label "Nombre" %><br />
-    <%= f.text_field :name, autofocus: true , required: true%>
+    <%= f.text_field :name, autofocus: true , required: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Apellido paterno" %><br />
-    <%= f.text_field :paterno, autofocus: true , required: true%>
+    <%= f.text_field :paterno, autofocus: true , required: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Apellido materno" %><br />
-    <%= f.text_field :materno, autofocus: true , required: true%>
+    <%= f.text_field :materno, autofocus: true , required: true, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Fecha de nacimiento" %><br />
     <%= f.date_select :edad,:start_year=>1996,:end_year=>2000%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Escuela" %><br />
-    <%= f.text_field :escuela, autofocus: true , required: true%>
+    <%= f.text_field :escuela, autofocus: true , required: true, class: "form-control"%>
   </div>
 
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Correo Electronico" %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true , class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Contraseña" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Confirmar contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
   </div>
 <br>
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit "Registrar", class: "btn btn-default" %>
   </div>
-<% end %>
 
+    </div>
+<% end %>
 
 
 </div>
