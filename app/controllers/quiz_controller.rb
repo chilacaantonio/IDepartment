@@ -1,10 +1,13 @@
 class QuizController < ApplicationController
   before_action :varios, only: [:c1,:c2,:c3,:rc1,:index,:resultados]
   before_action :q2, only: [:rc2,:rc3,:index,:evalua1,:resultados]
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index]
   before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados]
 
   def index
+  end
+
+  def inicio
   end
 
   def resultados
