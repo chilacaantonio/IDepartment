@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label "Fecha de nacimiento" %><br />
-    <%= f.date_select :edad %>
+    <%= f.date_select :edad,:start_year=>1950,:end_year=>2000 %>
   </div>
 
   <div class="field">

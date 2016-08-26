@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post "quiz/evalua1"
   get "quiz/evalua1"
 
-  root "principales#index"
+
+  root "quiz#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

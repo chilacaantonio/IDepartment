@@ -1,3 +1,6 @@
+<% if @opc %>
+<% controller.redirect_to root_path %>
+<% else %>
 <p>Elige únicamente un concepto con el que estés más familiarizado.</p>
 <%= form_tag({controller: "quiz", action: "evalua1"}) do |f| %>
 <p>
@@ -9,4 +12,5 @@
 <%= submit_tag("Siguiente", :class => "btn btn-default") %>
 </p>
 
+<% end %>
 <% end %>

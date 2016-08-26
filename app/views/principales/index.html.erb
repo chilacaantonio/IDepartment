@@ -1,7 +1,29 @@
 <% if user_signed_in? %>
-<p>
-  Respond every section with full honesty and objectiveness./ Responde todas las secciones con completa honestidad y objetividad.</p>
-<%= link_to "Iniciar", quiz_preg1_path %>
+  <% if @datos=Resp.exists?(user_id: current_user) %>
+  <p>
+    //
+    <% @imagen.each do |a| %>
+      <% @datos.each do |dat| %>
+        <% if @imagen == dat.cual %>
+          <p>
+            <%=image_tag(@imagen[a.to_i]+".png", alt: "Example Image")%><br>
+            <h2><%= link_to @titulo[a.to_i], @url[a.to_i] %></h2><br>
+            <h1><%= @sub[a.to_i] %></h1><br>
+            <%= @quien[a.to_i] %><br>
+            Level: <%= @level[a.to_i] %><br>
+            Grade: <%= @grade[a.to_i] %>
+          </p>
+        <% end %>
+      <% end %>
+    <% end %>
+    //
+  </p>
+  <% else %>
+  <p>
+    Respond every section with full honesty and objectiveness./ Responde todas las secciones con completa honestidad y objetividad.</p>
+    <%= link_to "Iniciar", quiz_preg1_path %>
+    <% end %>
+
 <% else %>
 <p>
   Bienvenido, antes de comenzar debes registrarte.

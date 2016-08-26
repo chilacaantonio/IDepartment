@@ -1,3 +1,6 @@
+<% if @opc %>
+<% controller.redirect_to root_path %>
+<% else %>
 <p>
   How good do you master your debating, argumenting and public speaking skills?
 </p>
@@ -15,4 +18,6 @@
   </p>
 <%= submit_tag("Siguiente", :class => "btn btn-default") %>
 </p>
+<% end %>
+
 <% end %>

@@ -1,7 +1,11 @@
 class QuizController < ApplicationController
-  before_action :varios, only: [:c1,:c2,:c3,:rc1]
-  before_action :q2, only: [:rc2,:rc3]
+  before_action :varios, only: [:c1,:c2,:c3,:rc1,:index]
+  before_action :q2, only: [:rc2,:rc3,:index,:evalua1]
   before_action :authenticate_user!, except: [:index,:show]
+  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3]
+
+  def index
+  end
 
   def preg1
   end
@@ -15,7 +19,14 @@ class QuizController < ApplicationController
       redirect_to quiz_preg4_path
     end
   else
-    redirect_to :back,  notice: 'Selecciona una opcion'
+    #redirect_to :back,  notice: 'Selecciona una opcion'
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+          redirect_to :back, notice: 'Selecciona una opcion'
+        else
+          redirect_to root_path
+        end
+
+
   end
 
   end
@@ -34,11 +45,28 @@ class QuizController < ApplicationController
   def preg3
   end
 
+  def preg4
+  end
+
   def evalua1
     if params[:choice].present?
       @opcion = params[:choice].to_i
+      if(@opcion == 1)
+        Resp.create(cual: @imagen[12],user_id: current_user.id,res: "2")
+      elsif (@opcion == 2)
+        Resp.create(cual: @imagen[13],user_id: current_user.id,res: "2")
+      else
+        Resp.create(cual: @imagen[14],user_id: current_user.id,res: "2")
+      end
+      redirect_to root_path
     else
-      redirect_to :back,  notice: 'Selecciona una opcion'
+      #redirect_to :back,  notice: 'Selecciona una opcion'
+      if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+            redirect_to :back, notice: 'Selecciona una opcion'
+          else
+            redirect_to root_path
+          end
+          #
   end
 
   end
@@ -73,11 +101,19 @@ class QuizController < ApplicationController
     if params[:product].present?
       if params[:product][:id].length == 3
       @varios = params[:product][:id]
+      @varios.each do |var|
+        Resp.create(cual: @idr[var.to_i],user_id: current_user.id,res: "1")
+      end
+      redirect_to root_path
       else
         redirect_to :back
       end
     else
-      redirect_to :back
+      if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+            redirect_to :back, notice: 'Selecciona 3 categorias'
+          else
+            redirect_to root_path
+          end
     end
   end
 
@@ -417,12 +453,20 @@ class QuizController < ApplicationController
         else
 
         end
+        @valores.each do |var|
+          Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
+        end
+        redirect_to root_path
         #
       else
         redirect_to :back
       end
     else
-      redirect_to :back
+      if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+            redirect_to :back, notice: 'Selecciona 3 categorias'
+          else
+            redirect_to root_path
+          end
     end
   end
 
@@ -772,33 +816,43 @@ class QuizController < ApplicationController
       else
         redirect_to :back
       end
+      @valores.each do |var|
+        Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
+      end
+      redirect_to root_path
     else
-      redirect_to :back
+      if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+            redirect_to :back, notice: 'Selecciona 3 categorias'
+          else
+            redirect_to root_path
+          end
+          #
     end
   end
 
   private
+
   def varios
     @respuestas = ["Economy","International Relationships","International Security","Society","Enviroment/Health","International Justice","Technology"]
     @idr = ["ilo","who","sc","uni","fao","icc","cst"]
-    @titulo = ["International Labor Organization (ILO)",
+    @titulo1 = ["International Labor Organization (ILO)",
     "World Health Organization (WHO)","Security Council (SC)",
     "United Nations International Children´s Emergency Fund (UNICEF)",
   "Food and Agriculture Organization of the United Nations (FAO)",
 "International Criminal Court (ICC)","Commission on Science and Technology for Development (CSTD)"]
-    @sub = ["Unemployment Caused by Artificial Intelligence",
+    @sub1 = ["Unemployment Caused by Artificial Intelligence",
     "Prevention of Mosquitoe Proliferation to Fight Mosquitoe-Born Diseases","Kurdish Conflict",
   "Education for Children with Disabilities","Administration of Alimentary Resources",
 "Against Lyndon B. Johnson for the Acts of Wars Committed in The Operation Ranch Hand",
 "Superbug Relentless Threat"]
-    @quien = ["Daniel Contreras, Alan Aguilar, Pablo Alduncin",
+    @quien1 = ["Daniel Contreras, Alan Aguilar, Pablo Alduncin",
       "Monserrat Barrientos, Jorge Tenorio, Melanie León","Paola Solís, José Diego Romero, Jesús Daniel",
     "Daniela Villa Lombardero, José Bulnes Martínez, Regina Peredo","María José Alejo Flores, Valeria Lorena Cano Echeverría",
   "","María José Campos, Amanda Polcaqui, Miguel Jiménez "]
 
-    @level = ["Standard","Standard","Standard","Introductory","Introductory","Standard","Standard"]
-    @grade = ["High School","High School","High School","Middle High School","Middle High School","High School","High School"]
-    @url = ["https://damunapp.wordpress.com/2016/06/07/international-labour-organization-ilo/",
+    @level1 = ["Standard","Standard","Standard","Introductory","Introductory","Standard","Standard"]
+    @grade1 = ["High School","High School","High School","Middle High School","Middle High School","High School","High School"]
+    @url1 = ["https://damunapp.wordpress.com/2016/06/07/international-labour-organization-ilo/",
       "https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/united-nations-international-childrens-emergency-fund-unicef/",
       "https://damunapp.wordpress.com/2016/06/07/world-health-organization-who/",
       "https://damunapp.wordpress.com/2016/06/07/international-court-of-justice-icj/",
@@ -808,25 +862,38 @@ class QuizController < ApplicationController
 
   def q2
     @cual = ["Econ","IR","IS","Soc","Env","IJ","Tec"]
-    @imagen = ["ilo","ga","hsc","sc","unep","ecosoc","unodc","crisis","esc","who","icc","cstd"]
+    @imagen = ["ilo","ga","hsc","sc","unep","ecosoc","unodc","crisis","esc","who","icc","cstd","cct","cpi","lpem"]
     @titulo = ["International Labour Organization (ILO)","General Assembly (GA)","Historical Security Council (HSC)","Security Council (SC)","United Nations Environment Programme (UNEP)",
     "Economic and Social Council (ECOSOC)","United Nations Office on Drugs and Crime (UNODC)","CRISIS","Emergency Security Council (ESC)","World Health Organization (WHO)","International Criminal Court (ICC)",
-  "Commission on Science and Technology for Development (CSTD)"]
+  "Commission on Science and Technology for Development (CSTD)","Comité Contra el Terrorismo (CCT)","Corte Penal Internacional (CPI)","-"]
     @sub = ["Unemployment Caused by Artificial Intelligence","Intervention in Emerging Countries","Third Arab Israeli War","Kurdish Conflict","Air Pollution in Cosmopolitan Cities",
     "Global Refugee Immigration Overload","Cyber Terrorism: Internet as a Tool for Terrorist Attacks","Secret Topic","Secret Topic","Prevention of Mosquitoe Proliferation to Fight Mosquitoe-Born Diseases",
-  "Against Lyndon B. Johnson for the Acts of Wars Committed in The Operation Ranch Hand","Superbug Relentless Threat"]
+  "Against Lyndon B. Johnson for the Acts of Wars Committed in The Operation Ranch Hand","Superbug Relentless Threat",
+"Régimen Talibán en Afganistán","Corte Penal Internacional (CPI)","Llegada de Petróleo Extranjero a México"]
     @quien = ["Daniel Contreras, Alan Aguilar, Pablo Alduncin","Silvana Inés Rodal Fregoso, Victoria María Ostrowski López","Francisco Morales, Emiliano Quiñonez","Paola Solís, José Diego Romero, Jesús Daniel",
     "Vicente Tolama Paisano, Juan Pablo Castillo Mendoza, Sofía Ramírez Gross","Ana Paola Prado, Metzery Celaya, Markova Lozano","Ana Elisa López, Mauricio Tenorio, Javier Rischtl",
   "Andrés Lappe, Daniela Rojo","Camila Valdivieso, Andrea Rossano, Ana Paola Roanova","Monserrat Barrientos, Jorge Tenorio, Melanie León","Julio Morales, Maximiliano Lopezlarssen, Jessica Adame",
-"María José Campos, Amanda Polcaqui, Miguel Jiménez "]
-    @level = ["Standard","Advanced","Standard","Standard","Standard","Advanced","Standard","Advanced","Advanced","Standard","Standard","Standard"]
+"María José Campos, Amanda Polcaqui, Miguel Jiménez","-","Roberto André Osornio Villareal, Carlos Rincón Castell, Jorge Augusto Tavera Manzanilla","Ruben Bringas, Luis Enrique de la Concha, Alejandro Vargas"]
+    @level = ["Standard","Advanced","Standard","Standard","Standard","Advanced","Standard","Advanced","Advanced","Standard","Standard","Standard","Estandar","Estandar","Estandar"]
     @grade = ["High School","High School","High School","High School","High School","High School","High School","High School (No pairs allowed)","High School (No pairs allowed)","High School (No pairs allowed)",
-      "High School (No pairs allowed)","High School (No pairs allowed)"]
+      "High School (No pairs allowed)","High School (No pairs allowed)","Secundaria","Bachillerato","Bachillerato"]
     @url = ["https://damunapp.wordpress.com/2016/06/07/international-labour-organization-ilo/","https://damunapp.wordpress.com/2016/06/12/general-assembly-ga/",
     "https://damunapp.wordpress.com/2016/06/07/historical-security-council-hsc/","https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/united-nations-environment-programme-unep/",
   "https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/united-nations-office-on-drugs-and-crime-unodc/","https://damunapp.wordpress.com/2016/06/07/",
   "https://damunapp.wordpress.com/2016/06/07/emergency-security-council-ega/","https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/international-court-of-justice-icj/",
-"https://damunapp.wordpress.com/2016/06/07/commission-on-science-and-technology-for-development-cstd/"]
+"https://damunapp.wordpress.com/2016/06/07/commission-on-science-and-technology-for-development-cstd/","https://damunapp.wordpress.com/2016/06/07/",
+"https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/"]
+  end
+
+  def existe
+    if Resp.exists?(user_id: current_user)
+      @datos=Resp.where(user_id: current_user)
+      @donde=@datos.first
+      @ss=@donde.res
+      @opc = true
+    else
+      @opc= false
+    end
   end
 
 end

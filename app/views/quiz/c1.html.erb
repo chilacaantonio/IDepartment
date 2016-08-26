@@ -1,4 +1,6 @@
-a
+<% if @opc %>
+<% controller.redirect_to root_path %>
+<% else %>
 <p>
   Choose the three most familiar concepts to you.
 </p>
@@ -12,6 +14,8 @@ a
 
 <%= submit_tag("Siguiente", :class => "btn btn-default") %>
 </p>
+
+<% end %>
 
 <% end %>
 
