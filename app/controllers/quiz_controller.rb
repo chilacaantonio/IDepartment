@@ -2,18 +2,24 @@ class QuizController < ApplicationController
   before_action :varios, only: [:c1,:c2,:c3,:rc1,:index,:resultados]
   before_action :q2, only: [:rc2,:rc3,:index,:evalua1,:resultados]
   before_action :authenticate_user!, except: [:index]
-  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados,:evalua1,:rc1,:rc2,:rc3]
+  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados,:evalua1,:rc1,:rc2,:rc3,:inicio]
 
   def index
   end
 
   def inicio
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def resultados
   end
 
   def preg1
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def resp1
@@ -38,6 +44,9 @@ class QuizController < ApplicationController
   end
 
   def preg2
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def resp2
@@ -49,9 +58,15 @@ class QuizController < ApplicationController
   end
 
   def preg3
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def preg4
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def evalua1
@@ -101,12 +116,21 @@ class QuizController < ApplicationController
   end
 
   def c1
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def c2
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def c3
+    if @opc
+      redirect_to root_path
+    end
   end
 
   def rc1  #respuestas a
