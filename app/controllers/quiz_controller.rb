@@ -111,7 +111,7 @@ class QuizController < ApplicationController
         end
       end
     else
-    redirect_to :back
+    redirect_to :back, notice: 'Selecciona una opcion'
     end
   end
 
@@ -143,7 +143,7 @@ class QuizController < ApplicationController
       end
       redirect_to quiz_resultados_path
       else
-        redirect_to :back
+        redirect_to :back, notice: 'Selecciona 3 categorias'
       end
     else
       if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
@@ -500,7 +500,7 @@ class QuizController < ApplicationController
         redirect_to quiz_resultados_path
         #
       else
-        redirect_to :back
+        redirect_to :back, notice: 'Selecciona 3 categorias'
       end
     else
       if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
@@ -515,7 +515,7 @@ class QuizController < ApplicationController
   end
 
   def rc3  #respuestas c
-    if !@opc
+  if !@opc
     if params[:product].present?
       if params[:product][:id].length == 3
         @valores = []
@@ -857,14 +857,15 @@ class QuizController < ApplicationController
         else
 
         end
+        ##
+        @valores.each do |var|
+          Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
+        end
+        redirect_to quiz_resultados_path
         #
       else
-        redirect_to :back
+        redirect_to :back, notice: 'Selecciona 3 categorias'
       end
-      @valores.each do |var|
-        Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
-      end
-      redirect_to quiz_resultados_path
     else
       if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
             redirect_to :back, notice: 'Selecciona 3 categorias'

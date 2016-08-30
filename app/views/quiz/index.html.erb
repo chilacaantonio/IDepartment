@@ -1,20 +1,24 @@
 <% if user_signed_in? %>
 <div class="panel panel-default">
-<center><h3>Intelligence Department/ Departamento de Inteligencia</h3></center></br>
-<center><%=image_tag("prese.jpeg", alt: "Bienvenido")%></center><br>
-<p>Bienvenido a una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
+</div>
+  <div class="panel panel-default">
+<center><%=image_tag("ini2.jpeg", alt: "Bienvenido")%></center><br>
+<% if @opc %>
+<p>Bienvenido una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
 Este proyecto le animará a la investigación, ser curioso y ser consciente de lo que está sucediendo en todo el mundo, pero especialmente para innovar nuevas formas de cambiar , haciendo un mejor ciudadano del mundo .
 Les damos oficialmente la bienvenida a la decimonovena edición de los Amicis Modelo de las Naciones Unidas les invitamos a dejar su impresión con nosotros .</p><br>
-<center><strong>Si no has realizado el cuestionario dirigete a la parte superior derecha y da click en el enlace Cuestionario</strong><br>
-<strong>Si ya lo has realizado con anterioridad el boton deberia decir Mis resultados</strong><br></center>
+<center><h1>Para visualizar tus resultados da <%= link_to "click aqui", quiz_resultados_path, class:"button" %></h1></center>
+<% else %>
+<p>Bienvenido una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
+Este proyecto le animará a la investigación, ser curioso y ser consciente de lo que está sucediendo en todo el mundo, pero especialmente para innovar nuevas formas de cambiar , haciendo un mejor ciudadano del mundo .
+Les damos oficialmente la bienvenida a la decimonovena edición de los Amicis Modelo de las Naciones Unidas les invitamos a dejar su impresión con nosotros .</p><br>
+<center><h1>Para realizar el cuestionario da <%= link_to "click aqui", quiz_inicio_path, class:"button" %></h1></center>
+<% end %>
 </div>
 <% else %>
 <div class="panel panel-default">
   <center><h3>Intelligence Department/ Departamento de Inteligencia</h3></center><br>
   <center><%=image_tag("prese.jpeg", alt: "Bienvenido")%></center><br>
-<p>Bienvenido una nueva experiencia , a un nuevo día y una nueva D' Amicis Modelo de las Naciones Unidas. Estamos agradecidos que sean parte de este proyecto y esperamos que disfrute cada aspecto de ella .
-Este proyecto le animará a la investigación, ser curioso y ser consciente de lo que está sucediendo en todo el mundo, pero especialmente para innovar nuevas formas de cambiar , haciendo un mejor ciudadano del mundo .
-Les damos oficialmente la bienvenida a la decimonovena edición de los Amicis Modelo de las Naciones Unidas les invitamos a dejar su impresión con nosotros .</p><br>
 <center><p><strong>Esta pagina tiene como motivo medir tus aptitudes con una serie de preguntas que ayudaran a colocarte en algun comite.</strong><br>
 <strong>Si ya tienes una cuenta por favor da click en <%= link_to "Iniciar sesion", new_user_session_path %>, si por el contrario es tu primera vez aqui, por favor da click en <%= link_to "Registrarse", new_user_registration_path %> en la parte superior derecha.<strong></p></center>
 </div>
