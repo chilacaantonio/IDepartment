@@ -2,7 +2,7 @@ class QuizController < ApplicationController
   before_action :varios, only: [:c1,:c2,:c3,:rc1,:index,:resultados]
   before_action :q2, only: [:rc2,:rc3,:index,:evalua1,:resultados]
   before_action :authenticate_user!, except: [:index]
-  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados]
+  before_action :existe, only: [:index,:preg1,:preg2,:preg3,:preg4,:c1,:c2,:c3,:resultados,:evalua1,:rc1,:rc2,:rc3]
 
   def index
   end
@@ -55,6 +55,7 @@ class QuizController < ApplicationController
   end
 
   def evalua1
+    if !@opc
     if params[:choice].present?
       @opcion = params[:choice].to_i
       if(@opcion == 1)
@@ -73,6 +74,11 @@ class QuizController < ApplicationController
             redirect_to root_path
           end
           #
+
+    end
+
+  else
+    redirect_to root_path
   end
 
   end
@@ -104,6 +110,7 @@ class QuizController < ApplicationController
   end
 
   def rc1  #respuestas a
+    if !@opc
     if params[:product].present?
       if params[:product][:id].length == 3
       @varios = params[:product][:id]
@@ -121,9 +128,13 @@ class QuizController < ApplicationController
             redirect_to root_path
           end
     end
+  else
+    redirect_to root_path
+  end
   end
 
   def rc2  #respuestas b
+    if !@opc
     if params[:product].present?
       if params[:product][:id].length == 3
         @valores = []
@@ -474,9 +485,13 @@ class QuizController < ApplicationController
             redirect_to root_path
           end
     end
+  else
+    redirect_to root_path
+  end
   end
 
   def rc3  #respuestas c
+    if !@opc
     if params[:product].present?
       if params[:product][:id].length == 3
         @valores = []
@@ -834,6 +849,9 @@ class QuizController < ApplicationController
           end
           #
     end
+  else
+    redirect_to root_path
+  end
   end
 
   private
