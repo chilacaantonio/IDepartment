@@ -20,4 +20,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-/.env
+#para no subir al git informacion de correo y cuenta
+#/.env
