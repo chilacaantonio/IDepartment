@@ -70,7 +70,7 @@ h1 {
 	.navbar-brand {
 
 		letter-spacing: -1px;
-		color: #FFFFFF
+		color: #FFFFFF;
 	}
 }
 
@@ -82,4 +82,33 @@ h1 {
   text-align: center;
 }
   background: #6B8E23;
+}
+
+.total {
+  background: #528CF7;
+  p {
+    color: #FFFFFF;
+  }
+}
+
+.mipanel {
+  background: #FFFFFF;
+  text-align: center;
+}
+
+
+table, td, th {
+}
+
+table {
+    width: 100%;
+}
+
+th {
+
+    height: 30px;
+}
+td {
+  height: 30px;
+  text-align: left;
 }

@@ -911,18 +911,18 @@ class QuizController < ApplicationController
 
   def q2
     @cual = ["Econ","IR","IS","Soc","Env","IJ","Tec"]
-    @imagen = ["ilo","ga","hsc","sc","unep","ecosoc","unodc","crisis","esc","who","icc","cstd","cct","cpi","lpem"]
+    @imagen = ["ilo","ga","hsc","sc","unep","ecosoc","unodc","crisis","esc","who","icc","cstd","cct","cpi","glam"]
     @titulo = ["International Labour Organization (ILO)","General Assembly (GA)","Historical Security Council (HSC)","Security Council (SC)","United Nations Environment Programme (UNEP)",
     "Economic and Social Council (ECOSOC)","United Nations Office on Drugs and Crime (UNODC)","CRISIS","Emergency Security Council (ESC)","World Health Organization (WHO)","International Criminal Court (ICC)",
-  "Commission on Science and Technology for Development (CSTD)","Comité Contra el Terrorismo (CCT)","Corte Penal Internacional (CPI)","-"]
+  "Commission on Science and Technology for Development (CSTD)","Comité Contra el Terrorismo (CCT)","Corte Penal Internacional (CPI)","Gabinete Legal y Ampliado Mexicano (GLAM)"]
     @sub = ["Unemployment Caused by Artificial Intelligence","Intervention in Emerging Countries","Third Arab Israeli War","Kurdish Conflict","Air Pollution in Cosmopolitan Cities",
     "Global Refugee Immigration Overload","Cyber Terrorism: Internet as a Tool for Terrorist Attacks","Secret Topic","Secret Topic","Prevention of Mosquitoe Proliferation to Fight Mosquitoe-Born Diseases",
   "Against Lyndon B. Johnson for the Acts of Wars Committed in The Operation Ranch Hand","Superbug Relentless Threat",
-"Régimen Talibán en Afganistán","Corte Penal Internacional (CPI)","Llegada de Petróleo Extranjero a México"]
+  "Régimen Talibán en Afganistán","Corte Penal Internacional (CPI)","Llegada de Petróleo Extranjero a México"]
     @quien = ["Daniel Contreras, Alan Aguilar, Pablo Alduncin","Silvana Inés Rodal Fregoso, Victoria María Ostrowski López","Francisco Morales, Emiliano Quiñonez","Paola Solís, José Diego Romero, Jesús Daniel",
     "Vicente Tolama Paisano, Juan Pablo Castillo Mendoza, Sofía Ramírez Gross","Ana Paola Prado, Metzery Celaya, Markova Lozano","Ana Elisa López, Mauricio Tenorio, Javier Rischtl",
   "Andrés Lappe, Daniela Rojo","Camila Valdivieso, Andrea Rossano, Ana Paola Roanova","Monserrat Barrientos, Jorge Tenorio, Melanie León","Julio Morales, Maximiliano Lopezlarssen, Jessica Adame",
-"María José Campos, Amanda Polcaqui, Miguel Jiménez","-","Roberto André Osornio Villareal, Carlos Rincón Castell, Jorge Augusto Tavera Manzanilla","Ruben Bringas, Luis Enrique de la Concha, Alejandro Vargas"]
+  "María José Campos, Amanda Polcaqui, Miguel Jiménez","-","Roberto André Osornio Villareal, Carlos Rincón Castell, Jorge Augusto Tavera Manzanilla","Ruben Bringas, Luis Enrique de la Concha, Alejandro Vargas"]
     @level = ["Standard","Advanced","Standard","Standard","Standard","Advanced","Standard","Advanced","Advanced","Standard","Standard","Standard","Estandar","Estandar","Estandar"]
     @grade = ["High School","High School","High School","High School","High School","High School","High School","High School (No pairs allowed)","High School (No pairs allowed)","High School (No pairs allowed)",
       "High School (No pairs allowed)","High School (No pairs allowed)","Secundaria","Bachillerato","Bachillerato"]
@@ -930,9 +930,10 @@ class QuizController < ApplicationController
     "https://damunapp.wordpress.com/2016/06/07/historical-security-council-hsc/","https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/united-nations-environment-programme-unep/",
   "https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/united-nations-office-on-drugs-and-crime-unodc/","https://damunapp.wordpress.com/2016/06/07/",
   "https://damunapp.wordpress.com/2016/06/07/emergency-security-council-ega/","https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/international-court-of-justice-icj/",
-"https://damunapp.wordpress.com/2016/06/07/commission-on-science-and-technology-for-development-cstd/","https://damunapp.wordpress.com/2016/06/07/",
-"https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/"]
+  "https://damunapp.wordpress.com/2016/06/07/commission-on-science-and-technology-for-development-cstd/","https://damunapp.wordpress.com/2016/06/07/food-and-agriculture-organization-of-the-united-nations-fao/",
+  "https://damunapp.wordpress.com/2016/06/07/international-criminal-court-icc/","https://damunapp.wordpress.com/2016/06/07/ctc-2/"]
   end
+
 
   def existe
     if Resp.exists?(user_id: current_user)

@@ -5,5 +5,6 @@ class AddNameToUsers < ActiveRecord::Migration[5.0]
     add_column :users, :materno, :string
     add_column :users, :escuela, :string
     add_column :users, :edad, :datetime
+    add_column :users, :admin, :integer
   end
 end

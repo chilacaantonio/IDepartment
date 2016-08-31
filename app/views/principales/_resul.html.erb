@@ -1,5 +1,5 @@
 <div class="total">
-<center><strong><p>Los comités en los cuales destacarán más como delegado serán:</p></strong></center>
+<center><strong><p>Los comités en los cuales pertenece<br><%= @user.name%> <%= @user.paterno%> <%= @user.materno%> son:</p></strong></center>
 </div><br><br>
   <% @idr.each do |a| %>
         <% @datos.each do |dat| %>
@@ -19,5 +19,5 @@
           <% end %>
       <% end %>
    <% end %>
-   <div class="mipanel"><h2>Felicidades completaste exitosamente el cuestionario</h2><br><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-   <%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
+<div class="mipanel"><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
+<%= link_to "Descargar PDF", principale_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>

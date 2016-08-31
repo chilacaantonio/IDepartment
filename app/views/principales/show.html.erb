@@ -1,0 +1,12 @@
+<% if !current_user.admin %>
+<% controller.redirect_to "public/404.html" %>
+<% else %>
+<% if user_signed_in? %>
+  <% if @opc && @ss=="2"%>
+    <%= render "result2" %>
+  <% elsif @opc && @ss=="1"%>
+<%= render "resul" %>
+
+<% end %>
+<% end %>
+<% end %>

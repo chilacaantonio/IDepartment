@@ -1,32 +1,62 @@
 <% if user_signed_in? %>
-  <% if @datos=Resp.exists?(user_id: current_user) %>
-  <p>
-    //
-    <% @imagen.each do |a| %>
-      <% @datos.each do |dat| %>
-        <% if @imagen == dat.cual %>
-          <p>
-            <%=image_tag(@imagen[a.to_i]+".png", alt: "Example Image")%><br>
-            <h2><%= link_to @titulo[a.to_i], @url[a.to_i] %></h2><br>
-            <h1><%= @sub[a.to_i] %></h1><br>
-            <%= @quien[a.to_i] %><br>
-            Level: <%= @level[a.to_i] %><br>
-            Grade: <%= @grade[a.to_i] %>
-          </p>
-        <% end %>
+<% if !current_user.admin %>
+<% controller.redirect_to "public/404.html" %>
+<% else %>
+
+<div class="mipanel">
+  <h1>Usuarios registrados</h1><br>
+  <%= select_tag :per_page, options_for_select([1,2,3], params[:per_page].to_i),
+         :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+
+  <%= form_tag({:controller => "principales", :action => "index"}, :method => :get) do %>
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+    <%= submit_tag "Buscar", :name => nil , class: "button" %>
+<% end %>
+  <table>
+    <tr>
+<th>Usuario</th>
+<th>Correo</th>
+<th>Edad</th>
+<th>Respuestas</th>
+<th>Estado cuestionario</th>
+</tr>
+<% @t = Time.now %>
+<% @añoactual = @t.strftime("%Y").to_i %>
+    <% @users.each do |user| %>
+    <tr>
+      <% if @resp = Resp.find_by(user_id: user.id) %>
+      <td><%= user.name %> <%= user.paterno %> <%= user.materno %><rt></td>
+      <td><%= user.email %></td>
+      <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
+      <% @valores="" %>
+      <% Resp.where(user_id: user.id).each do |r| %>
+      <% @valores=@valores+r.cual.to_s+"," %>
       <% end %>
+      <td><%= @valores %></td>
+      <td>Realizada el <%= @resp.created_at.strftime('%b %d, %Y , %I:%M %p') %></td>
+      <td><%= link_to "Resultados", principale_path(user) %></td>
+      <% else %>
+      <td><%= user.name %> <%= user.paterno %> <%= user.materno %></td>
+      <td><%= user.email %></td>
+      <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
+      <td></td>
+      <td>Aun no ha realizado la encuesta</td>
+      <% end %>
+      </tr>
     <% end %>
-    //
-  </p>
-  <% else %>
-  <p>
-    Respond every section with full honesty and objectiveness./ Responde todas las secciones con completa honestidad y objetividad.</p>
-    <%= link_to "Iniciar", quiz_preg1_path %>
-    <% end %>
+    </table>
+</div><br>
+<div class="mipanel">
+<%= will_paginate @users,renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente"%>
+<br><br>
+<p>
+  Descargar:
+  <%= link_to "CSV", principales_path(format: "csv") %> |
+  <%= link_to "Excel", principales_path(format: "xls") %>
+</p>
+</div>
+<% end %>
 
 <% else %>
-<p>
-  Bienvenido, antes de comenzar debes registrarte.
-</p>
-
+<% controller.redirect_to root_path %>
 <% end %>

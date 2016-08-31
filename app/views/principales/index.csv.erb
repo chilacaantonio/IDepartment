@@ -1,0 +1,14 @@
+<% headers = ["Nombre", "Correo","Realizado","Comite(s)"] %>
+<%= CSV.generate_line headers %>
+<% @usuarios.each do |user| %>
+<% @valores="" %>
+<% Resp.where(user_id: user.id).each do |r| %>
+<% @valores=@valores+r.cual.to_s+"," %>
+<% end %>
+<% if @resp = Resp.find_by(user_id: user.id) %>
+<% row = [ user.name+" "+user.paterno+" "+user.materno , user.email, @resp.created_at.strftime('%b %d, %Y , %I:%M %p'), @valores] %>
+<% else %>
+<% row = [ user.name+" "+user.paterno+" "+user.materno , user.email, "No"] %>
+<% end %>
+<%= CSV.generate_line row %>
+<% end %>
