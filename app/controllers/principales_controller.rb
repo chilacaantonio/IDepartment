@@ -5,7 +5,7 @@ class PrincipalesController < ApplicationController
   before_action :q2, only: [:show]
   def index
     @search = User.where("name LIKE ?","%#{params[:searchbox]}%").where(admin: nil)
-    @per_page = params[:per_page] || 1
+    @per_page = params[:per_page] || 10
     @users = @search.joins('LEFT JOIN resps on resps.user_id = users.id').distinct.paginate(page: params[:page], per_page: @per_page)
     @usuarios = User.joins('LEFT JOIN resps on resps.user_id = users.id').where(admin: nil).distinct
     respond_to do |format|

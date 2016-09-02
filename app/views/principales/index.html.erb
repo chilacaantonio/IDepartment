@@ -5,7 +5,7 @@
 
 <div class="mipanel">
   <h1>Usuarios registrados</h1><br>
-  <%= select_tag :per_page, options_for_select([1,2,3], params[:per_page].to_i),
+  <%= select_tag :per_page, options_for_select([10,20,30,40,50], params[:per_page].to_i),
          :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
 
   <%= form_tag({:controller => "principales", :action => "index"}, :method => :get) do %>
@@ -30,7 +30,7 @@
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
       <% @valores="" %>
       <% Resp.where(user_id: user.id).each do |r| %>
-      <% @valores=@valores+r.cual.to_s+"," %>
+      <% @valores=@valores+r.cual.to_s+"\n" %>
       <% end %>
       <td><%= @valores %></td>
       <td>Realizada el <%= @resp.created_at.strftime('%b %d, %Y , %I:%M %p') %></td>
