@@ -5,9 +5,9 @@ pdf.text "#{@user.name} #{@user.paterno} #{@user.materno} son:"
 pdf.move_down(30)
 
 if @opc && @ss=="2"
-  render "pdf2", :pdf => pdf
+  render "quiz/pdf2", :pdf => pdf
 elsif @opc && @ss=="1"
-  render "pdf1", :pdf => pdf
+  render "quiz/pdf1", :pdf => pdf
 end
 
 end

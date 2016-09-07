@@ -1,6 +1,3 @@
-<div class="total">
-<center><strong><p>Los comités en los cuales destacarán más como delegado serán:</p></strong></center>
-</div><br><br>
   <% @idr.each do |a| %>
         <% @datos.each do |dat| %>
           <% if @idr[@idr.index(a)] == dat.cual %>
@@ -8,7 +5,7 @@
               <div class="panel-body">
                 <div class="row">
                   <center><%=image_tag(@idr[@idr.index(a).to_i]+".png", alt: "Example Image")%><br>
-                    <h2><%= link_to @titulo1[@idr.index(a).to_i], @url1[@idr.index(a).to_i] %></h2><br>
+                    <h2><%= @titulo1[@idr.index(a).to_i] %></h2><br>
                     <h1><%= @sub1[@idr.index(a).to_i] %></h1><br>
                     <strong>Chair members: </strong><%= @quien1[@idr.index(a).to_i] %><br>
                     <strong>Level:</strong><%= @level1[@idr.index(a).to_i] %><br>
@@ -19,5 +16,3 @@
           <% end %>
       <% end %>
    <% end %>
-   <div class="mipanel"><h2>Felicidades completaste exitosamente el cuestionario</h2><br><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-   <%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
