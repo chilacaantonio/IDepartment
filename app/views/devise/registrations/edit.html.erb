@@ -25,7 +25,7 @@
 
   <div class="form-group">
     <%= f.label "Fecha de nacimiento" %><br />
-    <%= f.date_select :edad %>
+    <%= f.date_select :edad,:start_year=>1996,:end_year=>2005%>
   </div>
 
   <div class="form-group">
