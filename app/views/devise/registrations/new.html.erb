@@ -8,9 +8,6 @@
   <%= devise_error_messages! %>
 
   <div class="panel-body">
-
-
-
   <div class="form-group">
     <%= f.label "Nombre" %><br />
     <%= f.text_field :name, autofocus: true , required: true, class: "form-control"%>
@@ -34,6 +31,15 @@
     <%= f.text_field :escuela, autofocus: true , required: true, class: "form-control"%>
   </div>
 
+  <div class="form-group">
+    <%= f.label "Grado escolar" %><br />
+    <%= f.radio_button :grado, "1" , checked: true%> 1ro de Secundaria<br>
+    <%= f.radio_button :grado, "2" %> 2ndo de Secundaria<br>
+    <%= f.radio_button :grado, "3" %> 3ro de Secundaria<br>
+    <%= f.radio_button :grado, "4" %> 1ro de Preparatoria<br>
+    <%= f.radio_button :grado, "5" %> 2ndo de Preparatoria<br>
+    <%= f.radio_button :grado, "6" %> 3ro de Preparatoria<br>
+  </div>
 
   <div class="form-group">
     <%= f.label "Correo Electronico" %><br />

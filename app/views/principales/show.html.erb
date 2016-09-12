@@ -1,4 +1,4 @@
-<% if !current_user.admin %>
+<% if current_user.admin!=1 %>
 <% controller.redirect_to "public/404.html" %>
 <% else %>
 <% if user_signed_in? %>

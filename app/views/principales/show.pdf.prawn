@@ -1,4 +1,4 @@
-if current_user.admin
+if current_user.admin == 1
 prawn_document() do |pdf|
 pdf.text "Los comites a los que pertenece", :style => :bold
 pdf.text "#{@user.name} #{@user.paterno} #{@user.materno} son:"

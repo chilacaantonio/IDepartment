@@ -10,7 +10,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <% if current_user.admin %>
+        <% if current_user.admin==1 %>
         <% else %>
         <% if Resp.where(user_id: current_user).first %>
         <%= link_to "Mis resultados  |", quiz_resultados_path,class: "navbar-brand"%>
