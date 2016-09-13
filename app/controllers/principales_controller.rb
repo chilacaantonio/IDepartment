@@ -72,12 +72,12 @@ purposes"]
    @quien = ["Daniel Contreras, Alan Aguilar, Pablo Alduncin","Silvana Inés Rodal Fregoso, Victoria María Ostrowski López","Francisco Morales, Emiliano Quiñonez","Paola Solís, José Diego Romero, Jesús Daniel",
    "Vicente Tolama Paisano, Juan Pablo Castillo Mendoza, Sofía Ramírez Gross","Ana Paola Prado, Metzery Celaya, Markova Lozano","Ana Elisa López, Mauricio Tenorio, Javier Rischtl",
  "Andrés Lappe, Daniela Rojo","Camila Valdivieso, Andrea Rossano, Ana Paola Roanova","Monserrat Barrientos, Jorge Tenorio, Melanie León","Julio Morales, Maximiliano Lopezlarssen, Jessica Adame",
- "María José Campos, Amanda Polcaqui, Miguel Jiménez","-","Roberto André Osornio Villareal, Carlos Rincón Castell, Jorge Augusto Tavera Manzanilla","Ruben Bringas, Luis Enrique de la Concha, Alejandro Vargas",
+ "María José Campos, Amanda Polcaqui, Miguel Jiménez","Andrea López, Ian Valdovinos, Arantza Martínez","Roberto André Osornio Villareal, Carlos Rincón Castell, Jorge Augusto Tavera Manzanilla","Ruben Bringas, Luis Enrique de la Concha, Alejandro Vargas",
 "María José Alejo Flores, Valeria Lorena Cano Echeverría","Daniela Villa Lombardero, José Bulnes Martínez, Regina Peredo","Heinz Hermann Wendler Alfaro, Angela Sofia Crocker Sanchez, Alexa Orive
 Coronel"]
    @level = ["Standard","Advanced","Standard","Standard","Standard","Advanced","Standard","Advanced","Advanced","Standard","Standard","Standard","Estandar","Estandar","Estandar","Introductory","Introductory","Standard"]
    @grade = ["High School","High School","High School","High School","High School","High School","High School","High School (No pairs allowed)","High School (No pairs allowed)","High School (No pairs allowed)",
-     "High School (No pairs allowed)","High School (No pairs allowed)","Secundaria","Bachillerato","Bachillerato","Middle School","Middle High School"," Middle School (No pairs allowed)"]
+     "High School (No pairs allowed)","High School (No pairs allowed)","Secundaria (No se permiten parejas)","Bachillerato","Bachillerato","Middle School","Middle High School"," Middle School (No pairs allowed)"]
    @url = ["https://damunapp.wordpress.com/2016/06/07/international-labour-organization-ilo/","https://damunapp.wordpress.com/2016/06/12/general-assembly-ga/",
    "https://damunapp.wordpress.com/2016/06/07/historical-security-council-hsc/","https://damunapp.wordpress.com/2016/06/07/","https://damunapp.wordpress.com/2016/06/07/united-nations-environment-programme-unep/",
  "https://damunapp.wordpress.com/2016/06/07/economic-and-social-council-ecosoc/","https://damunapp.wordpress.com/2016/06/07/united-nations-office-on-drugs-and-crime-unodc/","https://damunapp.wordpress.com/2016/06/07/",

@@ -9,7 +9,11 @@
                 <h1><%= @sub[@imagen.index(a).to_i] %></h1><br>
                 <strong>Miembros de la mesa:</strong><%= @quien[@imagen.index(a).to_i] %><br>
                 <strong>Nivel:</strong><%= @level[@imagen.index(a).to_i] %><br>
-                <strong>Grado:</strong> <%= @grade[@imagen.index(a).to_i] %><br><br><br><br></center>
+                <strong>Grado:</strong> <%= @grade[@imagen.index(a).to_i] %><br><br>
+                <% if @imagen[@imagen.index(a).to_i] == "fao" %>
+                <strong><u>DELEGATE: If you’re on 2nd grade, you will be able to participate in pairs in High School Committees that allow pairs, you’ll find the High School Committees you can participate in on the App!</u></strong>
+                <% end %>
+                <br><br></center>
               </div></div></div><br><br>
     <% end %>
   <% end %>
