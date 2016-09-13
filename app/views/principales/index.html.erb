@@ -31,7 +31,9 @@
       <td><%= user.email %></td>
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
       <td><%= user.escuela %></td>
-      <% if user.grado == "1" %>
+      <% if user.grado == nil %>
+      <td></td>
+      <% elsif user.grado == "1" %>
       <td>1ro de Secundaria</td>
       <% elsif user.grado == "2" %>
       <td>2ndo de Secundaria</td>
@@ -56,7 +58,9 @@
       <td><%= user.email %></td>
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
       <td><%= user.escuela %></td>
-      <% if user.grado == "1" %>
+      <% if user.grado == nil %>
+      <td></td>
+      <% elsif user.grado == "1" %>
       <td>1ro de Secundaria</td>
       <% elsif user.grado == "2" %>
       <td>2ndo de Secundaria</td>
