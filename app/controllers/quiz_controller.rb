@@ -26,7 +26,7 @@ class QuizController < ApplicationController
     if params[:choice].present?
     choiceid = params[:choice].to_i
     if choiceid<3
-      if current_user.grado.to_i > 2
+      if current_user.grado.to_i > 2 || current_user.grado == nil
         $mivar = 0
       else
           $mivar = 1

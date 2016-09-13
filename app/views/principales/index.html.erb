@@ -17,6 +17,8 @@
 <th>Usuario</th>
 <th>Correo</th>
 <th>Edad</th>
+<th>Escuela</th>
+<th>Grado</th>
 <th>Respuestas</th>
 <th>Estado cuestionario</th>
 </tr>
@@ -28,6 +30,20 @@
       <td><%= user.name %> <%= user.paterno %> <%= user.materno %><rt></td>
       <td><%= user.email %></td>
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
+      <td><%= user.escuela %></td>
+      <% if user.grado == "1" %>
+      <td>1ro de Secundaria</td>
+      <% elsif user.grado == "2" %>
+      <td>2ndo de Secundaria</td>
+      <% elsif user.grado == "3" %>
+      <td>3ro de Secundaria</td>
+      <% elsif user.grado == "4" %>
+      <td>1ro de Preparatoria</td>
+      <% elsif user.grado == "5" %>
+      <td>2ndo de Preparatoria</td>
+      <% elsif user.grado == "6" %>
+      <td>3ro de Preparatoria</td>
+      <% end %>
       <% @valores="" %>
       <% Resp.where(user_id: user.id).each do |r| %>
       <% @valores=@valores+r.cual.to_s+"\n" %>
@@ -39,6 +55,20 @@
       <td><%= user.name %> <%= user.paterno %> <%= user.materno %></td>
       <td><%= user.email %></td>
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
+      <td><%= user.escuela %></td>
+      <% if user.grado == "1" %>
+      <td>1ro de Secundaria</td>
+      <% elsif user.grado == "2" %>
+      <td>2ndo de Secundaria</td>
+      <% elsif user.grado == "3" %>
+      <td>3ro de Secundaria</td>
+      <% elsif user.grado == "4" %>
+      <td>1ro de Preparatoria</td>
+      <% elsif user.grado == "5" %>
+      <td>2ndo de Preparatoria</td>
+      <% elsif user.grado == "6" %>
+      <td>3ro de Preparatoria</td>
+      <% end %>
       <td></td>
       <td>Aun no ha realizado la encuesta</td>
       <% end %>
