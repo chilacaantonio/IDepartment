@@ -164,13 +164,13 @@ class QuizController < ApplicationController
     if !@opc
     if params[:product].present?
       if params[:product][:id].length == 3
+        @valores = []
         if $mivar == 0
           @varios = params[:product][:id]
           @varios.each do |var|
             Resp.create(cual: @idr[var.to_i],user_id: current_user.id,res: "1")
-        end
+          end
       elsif $mivar == 1
-        @valores = []
         @valores[0]=12
         @valores[1]=15
         @valores.each do |var|
@@ -178,12 +178,13 @@ class QuizController < ApplicationController
         end
 
       elsif $mivar == 2
-        @valores = []
         @valores[0]=16
         @valores[1]=17
         @valores.each do |var|
           Resp.create(cual: @imagen[var.to_i],user_id: current_user.id,res: "2")
         end
+      else
+
       end
       redirect_to quiz_resultados_path
       else
@@ -957,6 +958,7 @@ class QuizController < ApplicationController
 
   def varios
     @respuestas = ["Economy","International Relationships","International Security","Society","Enviroment/Health","International Justice","Technology"]
+    @imagen = ["ilo","ga","hsc","sc","unep","ecosoc","unodc","crisis","esc","who","icc","cstd","cct","cpi","glam","fao","uni","hrc"]
     @idr = ["ilo","who","sc","uni","fao","icc","cst"]
     @titulo1 = ["International Labor Organization (ILO)",
     "World Health Organization (WHO)","Security Council (SC)",
