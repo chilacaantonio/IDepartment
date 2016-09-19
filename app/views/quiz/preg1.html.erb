@@ -1,6 +1,9 @@
 <% if @opc %>
 <% controller.redirect_to root_path %>
 <% else %>
+<% if !current_user.grado %>
+<% controller.redirect_to root_path %>
+<% else %>
 <div class="panel panel-default">
 <h3>
   How confident do you feel about your English skills?/¿Cómo calificarías tu nivel de inglés?
@@ -19,6 +22,7 @@
 <%= submit_tag("Next/Siguiente", :class => "btn btn-default") %>
 </p>
 </div>
+<% end %>
 <% end %>
 
 <% end %>

@@ -1,6 +1,9 @@
 <% if @opc %>
 <% controller.redirect_to root_path %>
 <% else %>
+<% if !current_user.grado %>
+<% controller.redirect_to root_path %>
+<% else %>
 <div class="panel panel-default">
 <h3>
   How good do you master your debating, argumenting and public speaking skills?
@@ -21,5 +24,5 @@
 </p>
 </div>
 <% end %>
-
+<% end %>
 <% end %>

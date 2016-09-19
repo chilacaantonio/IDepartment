@@ -13,6 +13,22 @@ class QuizController < ApplicationController
     end
   end
 
+  def actualiza
+    if params[:choice].present?
+    choiceid = params[:choice].to_i
+    @user = User.find(current_user.id)
+    @user.update(grado: choiceid.to_s)
+    redirect_to quiz_inicio_path
+  else
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+          redirect_to :back, notice: 'Selecciona una opcion'
+        else
+          redirect_to quiz_inicio_path
+        end
+  end
+
+  end
+
   def resultados
   end
 
@@ -1025,5 +1041,6 @@ class QuizController < ApplicationController
       @opc= false
     end
   end
+
 
 end

@@ -13,6 +13,7 @@
 <%= render "resul" %>
 <div class="mipanel"><h2>Felicidades completaste exitosamente el cuestionario</h2><br><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
 <%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
-
+<% else %>
+<% controller.redirect_to root_path %>
 <% end %>
 <% end %>

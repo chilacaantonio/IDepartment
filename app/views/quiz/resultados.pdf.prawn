@@ -8,6 +8,8 @@ if @opc && @ss=="2"
   render "pdf2", :pdf => pdf
 elsif @opc && @ss=="1"
   render "pdf1", :pdf => pdf
+else
+  controller.redirect_to root_path
 end
 
 end

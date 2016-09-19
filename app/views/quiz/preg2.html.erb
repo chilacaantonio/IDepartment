@@ -1,6 +1,9 @@
 <% if @opc %>
 <% controller.redirect_to root_path %>
 <% else %>
+<% if !current_user.grado %>
+<% controller.redirect_to root_path %>
+<% else %>
 <div class="panel panel-default">
 <h3>¿Qué tanto dominas tus habilidades de debate, argumentación y el habla pública</h3>
 <%= form_tag({controller: "quiz", action: "resp2"}) do |f| %>
@@ -17,6 +20,7 @@
 <%= submit_tag("Siguiente", :class => "btn btn-default") %>
 </p>
 </div>
+<% end %>
 <% end %>
 
 <% end %>

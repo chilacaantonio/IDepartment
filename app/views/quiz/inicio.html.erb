@@ -1,9 +1,35 @@
+<% if !current_user.grado %>
+<div class="panel-body">
+  <div class="row">
+    <div class="panel panel-default">
+      			<div class="panel-body">
+              <h2>Por favor selecciona tu grado antes de poder continuar</h2><br>
+<%= form_tag({controller: "quiz", action: "actualiza"}) do |f| %>
+<div class="form-group">
+    <p>Grado escolar<br>
+    <%= radio_button_tag(:choice, 1) %> 1ro de Secundaria<br>
+    <%= radio_button_tag(:choice, 2) %> 2ndo de Secundaria<br>
+    <%= radio_button_tag(:choice, 3) %> 3ro de Secundaria<br>
+    <%= radio_button_tag(:choice, 4) %> 1ro de Preparatoria<br>
+    <%= radio_button_tag(:choice, 5) %> 2ndo de Preparatoria<br>
+    <%= radio_button_tag(:choice, 6) %> 3ro de Preparatoria<br>
+<%= submit_tag("Aceptar", :class => "btn btn-default") %>
+
+</div>
+</div>
+</div>
+</div>
+</center>
+<% end %>
+
+<% else %>
 <div class="panel panel-default">
-  <center><%=image_tag("filo.jpeg", alt: "Bienvenido")%></center><br>
+<center><%=image_tag("filo.jpeg", alt: "Bienvenido")%></center><br>
 <center><p>Please answer carefully.
 Remember this results are just a suggestion, But still is important that
 you take it into consideration.
 We hope you enjoy the nineteenth edition of D'AMUN.</p></center><br>
 <center><%= link_to "Iniciar Cuestionario", quiz_preg1_path , class: "btn btn-default"%></center>
-
 </div>
+
+<% end %>
