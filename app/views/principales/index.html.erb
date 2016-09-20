@@ -32,7 +32,7 @@
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
       <td><%= user.escuela %></td>
       <% if user.grado == nil %>
-      <td></td>
+      <td>Sin grado</td>
       <% elsif user.grado == "1" %>
       <td>1ro de Secundaria</td>
       <% elsif user.grado == "2" %>
@@ -59,7 +59,7 @@
       <td><%= @añoactual-user.edad.strftime("%Y").to_i %></td>
       <td><%= user.escuela %></td>
       <% if user.grado == nil %>
-      <td></td>
+      <td>Sin grado</td>
       <% elsif user.grado == "1" %>
       <td>1ro de Secundaria</td>
       <% elsif user.grado == "2" %>
@@ -73,7 +73,7 @@
       <% elsif user.grado == "6" %>
       <td>3ro de Preparatoria</td>
       <% end %>
-      <td></td>
+      <td>Sin respuesta</td>
       <td>Aun no ha realizado la encuesta</td>
       <% end %>
       </tr>

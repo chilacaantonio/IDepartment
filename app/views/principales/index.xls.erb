@@ -9,6 +9,7 @@
       <Row>
         <Cell><Data ss:Type="String">Nombre</Data></Cell>
         <Cell><Data ss:Type="String">Correo</Data></Cell>
+        <Cell><Data ss:Type="String">Grado</Data></Cell>
         <Cell><Data ss:Type="String">Realizada</Data></Cell>
         <Cell><Data ss:Type="String">Comite(s)</Data></Cell>
       </Row>
@@ -16,6 +17,22 @@
       <Row>
         <Cell><Data ss:Type="String"><%= user.name %> <%= user.paterno %> <%= user.materno %> </Data></Cell>
         <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
+        <% if user.grado == nil %>
+        <Cell><Data ss:Type="String">Sin grado</Data></Cell>
+        <% elsif user.grado == "1" %>
+        <Cell><Data ss:Type="String">1ro de Secundaria</Data></Cell>
+        <% elsif user.grado == "2" %>
+        <Cell><Data ss:Type="String">2ndo de Secundaria</Data></Cell>
+        <% elsif user.grado == "3" %>
+        <Cell><Data ss:Type="String">3ro de Secundaria</Data></Cell>
+        <% elsif user.grado == "4" %>
+        <Cell><Data ss:Type="String">1ro de Preparatoria</Data></Cell>
+        <% elsif user.grado == "5" %>
+        <Cell><Data ss:Type="String">2ndo de Preparatoria</Data></Cell>
+        <% elsif user.grado == "6" %>
+        <Cell><Data ss:Type="String">3ro de Preparatoria</Data></Cell>
+        <% end %>
+
         <% if @resp = Resp.find_by(user_id: user.id) %>
         <Cell><Data ss:Type="String"><%= @resp.created_at.strftime('%b %d, %Y , %I:%M %p') %></Data></Cell>
         <% Resp.where(user_id: user.id).each do |r| %>
