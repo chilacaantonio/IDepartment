@@ -4,7 +4,7 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="row">
-                  <center><%=image_tag(@idr[@idr.index(a).to_i]+".png", alt: "Example Image")%><br>
+                  <center><%=image_tag(@idr[@idr.index(a).to_i]+".png", alt: "Example Image", class: "img-responsive")%><br>
                     <h2><%= @titulo1[@idr.index(a).to_i] %></h2><br>
                     <h1><%= @sub1[@idr.index(a).to_i] %></h1><br>
                     <strong>Chair members: </strong><%= @quien1[@idr.index(a).to_i] %><br>

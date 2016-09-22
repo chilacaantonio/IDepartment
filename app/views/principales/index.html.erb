@@ -3,16 +3,18 @@
 <% controller.redirect_to "public/404.html" %>
 <% else %>
 
-<div class="mipanel">
-  <h1>Usuarios registrados</h1><br>
-  <%= form_tag({:controller => "principales", :action => "index"}, :method => :get) do %>
+<div class="panel panel-default">
+  <div class="panel-heading">Usuarios registrados</div>
+<br>
+  <center><%= form_tag({:controller => "principales", :action => "index"}, :method => :get) do %>
     <%= text_field_tag "searchbox", params[:searchbox] , class: "searchbox"%>
     <%= submit_tag "Buscar", :name => nil , class: "btn btn-default" %>
     <%= select_tag :per_page, options_for_select([10,20,30,40,50], params[:per_page].to_i),
            :onchange => "if(this.value){window.location='?per_page='+this.value;}" %> Resultados por pagina
-<% end %>
+<% end %></center>
 <br><br>
-  <table class="table table-hover">
+<div class="table-responsive">
+  <table class="table">
     <tr>
 <th>Usuario</th>
 <th>Correo</th>
@@ -79,7 +81,9 @@
       </tr>
     <% end %>
     </table>
+  </div>
 </div><br>
+
 <div class="mipanel">
 <%= will_paginate @users,renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente"%>
 <br><br>
