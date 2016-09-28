@@ -5,14 +5,14 @@
   </div><br><br>
     <%= render "result2" %>
     <div class="mipanel"><h2>Felicidades completaste exitosamente el cuestionario</h2><br><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-    <%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
+    <%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary",:target => "_blank" %></div>
   <% elsif @opc && @ss=="1"%>
   <div class="total">
   <center><strong><p>Los comités en los cuales destacarán más como delegado serán:</p></strong></center>
   </div><br><br>
 <%= render "resul" %>
 <div class="mipanel"><h2>Felicidades completaste exitosamente el cuestionario</h2><br><center><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-<%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
+<%= link_to "Descargar PDF", quiz_resultados_path(@user, :format => 'pdf'), class: "btn btn-primary",:target => "_blank" %></div>
 <% else %>
 <% controller.redirect_to root_path %>
 <% end %>

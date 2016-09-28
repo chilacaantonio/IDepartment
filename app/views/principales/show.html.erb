@@ -8,7 +8,7 @@
   </div><br><br>
     <%= render "quiz/result2" %>
     <div class="mipanel"><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-    <%= link_to "Descargar PDF", principale_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
+    <%= link_to "Descargar PDF", principale_path(@user, :format => 'pdf'), class: "btn btn-primary", :target => "_blank" %></div>
 
   <% elsif @opc && @ss=="1"%>
   <div class="total">
@@ -16,7 +16,7 @@
   </div><br><br>
 <%= render "quiz/resul" %>
 <div class="mipanel"><button class="btn btn-primary" onclick="window.location.href='../'">Aceptar</button></center>
-<%= link_to "Descargar PDF", principale_path(@user, :format => 'pdf'), class: "btn btn-primary" %></div>
+<%= link_to "Descargar PDF", principale_path(@user, :format => 'pdf'), class: "btn btn-primary" , :target => "_blank"%></div>
 
 <% end %>
 <% end %>
