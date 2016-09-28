@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/bootstrap.min
+ *= require bootstrap/dataTables.bootstrap.min
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";

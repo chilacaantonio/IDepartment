@@ -4,9 +4,10 @@ class PrincipalesController < ApplicationController
   before_action :opciones, only: [:index]
   before_action :q2, only: [:show]
   def index
-    @search = User.where("name LIKE ?","%#{params[:searchbox]}%").where(admin: nil)
-    @per_page = params[:per_page] || 10
-    @users = @search.joins('LEFT JOIN resps on resps.user_id = users.id').distinct.paginate(page: params[:page], per_page: @per_page)
+  #  @search = User.where("name LIKE ?","%#{params[:searchbox]}%").where(admin: nil)
+  #  @per_page = params[:per_page] || 10
+    @users = User.joins('LEFT JOIN resps on resps.user_id = users.id').where(admin: nil).distinct
+    #@users = @search.joins('LEFT JOIN resps on resps.user_id = users.id').distinct.paginate(page: params[:page], per_page: @per_page)
     @usuarios = User.joins('LEFT JOIN resps on resps.user_id = users.id').where(admin: nil).distinct
     respond_to do |format|
     format.html

@@ -6,16 +6,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">Usuarios registrados</div>
 <br>
-  <center><%= form_tag({:controller => "principales", :action => "index"}, :method => :get) do %>
-    <%= text_field_tag "searchbox", params[:searchbox] , class: "searchbox"%>
-    <%= submit_tag "Buscar", :name => nil , class: "btn btn-default" %>
-    <%= select_tag :per_page, options_for_select([10,20,30,40,50], params[:per_page].to_i),
-           :onchange => "if(this.value){window.location='?per_page='+this.value;}" %> Resultados por pagina
-<% end %></center>
+
 <br><br>
 <div class="table-responsive">
-  <table class="table">
-    <tr>
+  <table id="example2" class="table">
+    <thead><tr>
 <th>Usuario</th>
 <th>Correo</th>
 <th>Edad</th>
@@ -23,7 +18,7 @@
 <th>Grado</th>
 <th>Respuestas</th>
 <th>Estado cuestionario</th>
-</tr>
+</tr></thead><tbody>
 <% @t = Time.now %>
 <% @añoactual = @t.strftime("%Y").to_i %>
     <% @users.each do |user| %>
@@ -80,19 +75,21 @@
       <% end %>
       </tr>
     <% end %>
+  </tbody>
     </table>
   </div>
 </div><br>
 
 <div class="mipanel">
-<%= will_paginate @users,renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente"%>
-<br><br>
 <p>
   Descargar:
   <%= link_to "CSV", principales_path(format: "csv") %> |
   <%= link_to "Excel", principales_path(format: "xls") %>
 </p>
 </div>
+<script>
+      $('#example2').DataTable();
+      </script>
 <% end %>
 
 <% else %>
