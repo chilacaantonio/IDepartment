@@ -77,6 +77,9 @@
     <% end %>
   </tbody>
     </table>
+    <script>
+          $('#example2').DataTable();
+          </script>
   </div>
 </div><br>
 
@@ -87,9 +90,7 @@
   <%= link_to "Excel", principales_path(format: "xls") %>
 </p>
 </div>
-<script>
-      $('#example2').DataTable();
-      </script>
+
 <% end %>
 
 <% else %>
